@@ -1,0 +1,53 @@
+//save all fingers
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ОБЪЕКТ 109</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #00ff00;
+            font-family: monospace;
+            padding: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #00ff00;
+            padding: 20px;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        input {
+            background: #000;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            padding: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>СЕРВЕР КИБЕРНЕТИКИ</h1>
+        <p>Система заблокирована. Требуется протокол доступа.</p>
+        <p>Введите ключ:</p>
+        <input type="text" id="flagInput" placeholder="...">
+        <button onclick="checkFlag()">Войти</button>
+        
+        <p id="result" style="margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        function checkFlag() {
+            const input = document.getElementById('flagInput').value;
+            if (btoa(input) === "b3Blbg==") { 
+                document.getElementById('result').innerText = "ДОСТУП РАЗРЕШЕН. Ищите координаты: 55.7558, 37.6173";
+            } else {
+                document.getElementById('result').innerText = "ОШИБКА ДОСТУПА. Попробуйте снова.";
+            }
+        }
+    </script>
+</body>
+</html>
