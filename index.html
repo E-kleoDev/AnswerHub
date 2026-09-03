@@ -3,147 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Архив Сообщества: Вопросы и Ответы</title>
+    <title>Архив</title>
     <style>
-        /* ОСНОВНЫЕ НАСТРОЙКИ СТИЛЯ */
         body {
-            /* ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШ ФОН */
-            background-image: url('https://static.vecteezy.com/system/resources/previews/013/403/839/non_2x/seamless-pattern-from-of-question-marks-vector.jpg'); 
+            /* ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШ СЮЖЕТНЫЙ ФОН */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://static.vecteezy.com/system/resources/previews/013/403/839/non_2x/seamless-pattern-from-of-question-marks-vector.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #0d0d11; /* Цвет-заглушка, если фон не загрузился */
-            color: #e0e0e6;
-            font-family: 'Courier New', monospace; /* Оставляем хакерский/старый стиль шрифта */
-            line-height: 1.6;
-            padding: 20px;
+            background-color: #030305;
+            color: #ff3333;
+            font-family: 'Courier New', monospace;
             margin: 0;
+            padding: 20px;
         }
 
-        /* КОНТЕЙНЕР ДЛЯ ТЕКСТА (ПРОЗРАЧНЫЙ БЛОК) */
-        .wrapper {
-            max-width: 800px;
-            margin: 40px auto;
-            background: rgba(15, 15, 25, 0.9); /* Темный полупрозрачный фон для читаемости текста */
-            padding: 40px;
-            border: 1px solid #3a3a4a;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+        /* БЛОК ДЛЯ КАРТИНОК WORDART */
+        .wordart-header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin: 30px auto;
+            max-width: 600px;
         }
 
-        h1 {
-            color: #ff3c00;
-            text-align: center;
-            border-bottom: 2px solid #3a3a4a;
-            padding-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            text-align: center;
-            font-style: italic;
-            color: #8a8a9a;
-            margin-bottom: 30px;
-        }
-
-        /* СТИЛЬ ДЛЯ БЛОКОВ С ВОПРОСАМИ */
-        .faq-item {
-            margin-bottom: 25px;
-            border-bottom: 1px dashed #3a3a4a;
-            padding-bottom: 20px;
-        }
-
-        .question {
-            font-weight: bold;
-            color: #00ff66;
-            font-size: 1.1em;
-            margin-bottom: 10px;
-        }
-
-        .answer {
-            color: #d1d1d6;
-            text-align: justify;
-        }
-
-        /* СТИЛЬ ДЛЯ КАРТИНОК ВНУТРИ ТЕКСТА */
-        .content-image {
-            display: block;
+        .wordart-logo {
             max-width: 100%;
             height: auto;
-            margin: 15px 0;
-            border: 1px solid #5a5a6a;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
         }
 
-        /* СТИЛЬ ДЛЯ ГИПЕРССЫЛОК */
-        a {
-            color: #00bfff;
-            text-decoration: none;
-            border-bottom: 1px dotted #00bfff;
-            transition: all 0.3s ease;
+        .main-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        a:hover {
-            color: #ff3c00;
-            border-bottom: 1px solid #ff3c00;
-            background: rgba(255, 60, 0, 0.1);
+        .scary-node {
+            border: 2px solid #ff3333;
+            background: rgba(15, 0, 0, 0.95);
+            box-shadow: 5px 5px 0px #ff3333;
         }
 
-        .footer {
-            margin-top: 40px;
-            text-align: center;
+        .scary-node.shift-right {
+            align-self: flex-end;
+            width: 90%;
+            border-color: #ffcc00;
+            box-shadow: 5px 5px 0px #ffcc00;
+            color: #ffcc00;
+        }
+
+        .node-trigger {
+            padding: 12px;
+            background: rgba(255, 51, 51, 0.1);
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 1px solid currentColor;
+            user-select: none;
+        }
+
+        .scary-node.shift-right .node-trigger {
+            background: rgba(255, 204, 0, 0.1);
+        }
+
+        .node-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            padding: 0 15px;
+            font-size: 0.9em;
+        }
+
+        .active .node-content {
+            padding: 15px;
+            max-height: 2000px;
+        }
+
+        .censored-block {
+            background: #ff3333;
+            color: #ff3333;
+            cursor: help;
+        }
+        .censored-block:hover { color: #000; }
+
+        .glitch-text {
             font-size: 0.8em;
-            color: #5a5a6a;
+            color: #555;
+            text-align: center;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <h1>ЦЕНТРАЛЬНЫЙ АРХИВ [ДАННЫЕ УДАЛЕНЫ]</h1>
-        <div class="subtitle">База знаний и часто задаваемые вопросы участников сообщества. Вход свободный.</div>
-
-        <!-- ВОПРОС 1 -->
-        <div class="faq-item">
-            <div class="question">В: Что это за место и кто мы такие?</div>
-            <div class="answer">
-                О: Мы — те, кто отказался смотреть в сторону. Наше сообщество занимается фиксацией аномалий сетевой структуры. Если вы попали сюда, значит, вы уже начали замечать странности в привычных логах. Подробнее о нашей манифестации можно прочитать на <a href="https://wikipedia.org" target="_blank">главном информационном узле</a>.
-            </div>
-        </div>
-
-        <!-- ВОПРОС 2 (С картинкой-загадкой) -->
-        <div class="faq-item">
-            <div class="question">В: Как расшифровать визуальные искажения на картах?</div>
-            <div class="answer">
-                О: Каждый сбой оставляет материальный след. Ниже приведен снимок сектора 7 от нашего полевого агента. Обратите внимание на нижний правый угол изображения — там скрыт ключ. 
-                
-                <!-- ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШУ КАРТИНКУ-ПОДСКАЗКУ -->
-                <img src="https://static.vecteezy.com/system/resources/previews/013/403/839/non_2x/seamless-pattern-from-of-question-marks-vector.jpg" alt="Искажение" class="content-image">
-                
-                Если вы не понимаете, что это, изучите инструкции в нашей <a href="secret-page.html">закрытой библиотеке кода</a>.
-            </div>
-        </div>
-
-        <!-- ВОПРОС 3 (С ARG зацепкой) -->
-        <div class="faq-item">
-            <div class="question">В: Где искать участников группы, если этот сайт отключат?</div>
-            <div class="answer">
-                О: В случае экстренной блокировки все координаторы перейдут на резервный сервер. Мы не можем публиковать прямую ссылку здесь, но вы можете использовать классический протокол. Наш старый союзник оставил зацепку. Просто найдите файл <a href="hint.txt">hint.txt</a> в корневом каталоге этого сервера. Там есть всё необходимое.
-            </div>
-        </div>
-
-        <!-- ВОПРОС 4 -->
-        <div class="faq-item">
-            <div class="question">В: Безопасно ли оставаться на этой странице?</div>
-            <div class="answer">
-                О: Пока вы просто читаете текст — да. Но не пытайтесь вводить свои реальные данные, если система выдаст стороннее окно запроса. Они следят за каждым переходом по внешним гиперссылкам.
-            </div>
-        </div>
-
-        <div class="footer">
-            © 2004-2026 АРХИВ. Данный узел защищен сквозным шифрованием.
-        </div>
+    <!-- ТРИ КАРТИНОК WORDART ДРУГ ПОД ДРУГОМ -->
+    <div class="wordart-header-container">
+        <img src="ahubWELCOME.png" alt="WELCOME" class="wordart-logo">
+        <img src="ahubtothe.png" alt="TO THE" class="wordart-logo">
+        <img src="ahubAnswerHub.png" alt="ANSWERHUB" class="wordart-logo">
     </div>
 
+    <div class="main-grid">
+
+        <div class="scary-node">
+            <div class="node-trigger" onclick="openNode(this)">[ ОШИБКА ИНДЕКСАЦИИ #019 ]</div>
+            <div class="node-content">
+                <p>Они думали, что проект закрыт в 2004-м. Но сервер продолжал отправлять пакеты данных каждые 43 минуты. Мы перехватили только текстовую часть лога. Имя файла, в котором лежит ответ, замазано цензурой: <span class="censored-block">level2_key.html</span>.</p>
+            </div>
+        </div>
+
+        <div class="scary-node shift-right">
+            <div class="node-trigger" onclick="openNode(this)">[ ИСКАЖЕННЫЙ МЕДИАФАЙЛ ]</div>
+            <div class="node-content">
+                <p>Снимок из архива камеры наблюдения. Игроки должны извлечь метаданные или найти пасхалку в пикселях.</p>
+                <!-- ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШУ ВНУТРЕННЮЮ КАРТИНКУ -->
+                <img src="https://unsplash.com" style="border:1px solid #ffcc00; max-width:100%;" alt="Data Corrupted">
+                <p>Если вы не видите ключ, попробуйте прочитать <a href="hint.txt" style="color: #fff;">технический манифест</a>.</p>
+            </div>
+        </div>
+
+        <div class="scary-node">
+            <div class="node-trigger" onclick="openNode(this)">[ СОСТОЯНИЕ СЕТИ ]</div>
+            <div class="node-content">
+                <p>Связь потеряна. Сигнал обрывается на координатах <span class="censored-block">55.75, 37.61</span>. Дальнейшие запросы перенаправляются в пустоту.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="glitch-text">CRITICAL_ERROR // MEMORY_LEAK_DETECTION // TERMINATE_SESSION</div>
+
+    <script>
+        function openNode(element) {
+            let parent = element.parentElement;
+            parent.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
