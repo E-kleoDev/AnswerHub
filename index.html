@@ -7,7 +7,7 @@
     <style>
         body {
             /* ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШ СЮЖЕТНЫЙ ФОН */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://static.vecteezy.com/system/resources/previews/013/403/839/non_2x/seamless-pattern-from-of-question-marks-vector.jpg'); 
+            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://unsplash.com'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -18,18 +18,18 @@
             padding: 20px;
         }
 
-        /* БЛОК ДЛЯ КАРТИНОК WORDART */
+        /* БЛОК ДЛЯ КАРТИНОК WORDART (УМЕНЬШЕННЫЙ РАЗМЕР) */
         .wordart-header-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px;
             margin: 30px auto;
-            max-width: 600px;
+            max-width: 350px; /* Ограничили ширину всего блока */
         }
 
         .wordart-logo {
-            max-width: 100%;
+            width: 100%; /* Картинки займут всю ширину контейнера (350px) */
             height: auto;
         }
 
@@ -102,7 +102,7 @@
     <div class="wordart-header-container">
         <img src="ahubWELCOME.png" alt="WELCOME" class="wordart-logo">
         <img src="ahubtothe.png" alt="TO THE" class="wordart-logo">
-        <img src="ahubAnswerHub.png" alt="ANSWERHUB" class="wordart-logo">
+        <img src="ahubAnswerHub.png" alt="ANSWER HUB" class="wordart-logo">
     </div>
 
     <div class="main-grid">
