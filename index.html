@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Архив</title>
+    <title>AnswerHub - Archive</title>
     <style>
         body {
-            /* ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШ СЮЖЕТНЫЙ ФОН */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('https://avatars.mds.yandex.net/i?id=780a4f53216791960642ef3d95154738c87e48e3-5218109-images-thumbs&n=13'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-color: #030305;
-            color: #ff3333;
-            font-family: 'Courier New', monospace;
+            /* ВАШ НОВЫЙ ФОН СО ЗНАКАМИ ВОПРОСА */
+            background-image: url('https://static.vecteezy.com/system/resources/previews/013/403/839/non_2x/seamless-pattern-from-of-question-marks-vector.jpg'); 
+            background-size: 300px; /* Размер узора, чтобы знаки не были огромными */
+            background-repeat: repeat;
+            background-color: #fce4ec;
+            color: #ffffff;
+            font-family: "Courier New", monospace;
             margin: 0;
             padding: 20px;
         }
 
-        /* БЛОК ДЛЯ КАРТИНОК WORDART (МАКСИМАЛЬНО КОМПАКТНЫЙ) */
+        /* КОМПАКТНЫЙ КОНТЕЙНЕР ДЛЯ КАРТИНОК WORDART */
         .wordart-header-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2px; /* Минимальное расстояние между фото */
-            margin: 20px auto;
-            max-width: 180px; /* Сделали картинки еще меньше */
+            gap: 2px;
+            margin: 10px auto;
+            max-width: 180px;
         }
 
         .wordart-logo {
@@ -33,66 +32,94 @@
             height: auto;
         }
 
-        .main-grid {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        /* СПЛОШНАЯ ТЕМНАЯ ПОДЛОЖКА ДЛЯ ТЕКСТА В СТИЛЕ 90-х */
+        .main-content-table {
+            max-width: 750px;
+            margin: 20px auto;
+            background-color: #1a0a0a; /* Темно-бордовый сплошной фон */
+            border: 3px double #ff3333; /* Двойная ретро-рамка */
+            padding: 25px;
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
         }
 
-        .scary-node {
-            border: 2px solid #ff3333;
-            background: rgba(15, 0, 0, 0.95);
-            box-shadow: 5px 5px 0px #ff3333;
+        h2 {
+            color: #ffcc00;
+            border-bottom: 1px solid #ff3333;
+            padding-bottom: 5px;
+            font-size: 1.3em;
+            margin-top: 30px;
         }
 
-        .scary-node.shift-right {
-            align-self: flex-end;
-            width: 90%;
-            border-color: #ffcc00;
-            box-shadow: 5px 5px 0px #ffcc00;
+        p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: underline;
+        }
+        a:hover {
             color: #ffcc00;
         }
 
-        .node-trigger {
-            padding: 12px;
-            background: rgba(255, 51, 51, 0.1);
-            cursor: pointer;
-            font-weight: bold;
-            border-bottom: 1px solid currentColor;
-            user-select: none;
-        }
-
-        .scary-node.shift-right .node-trigger {
-            background: rgba(255, 204, 0, 0.1);
-        }
-
-        .node-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            padding: 0 15px;
-            font-size: 0.9em;
-        }
-
-        .active .node-content {
-            padding: 15px;
-            max-height: 2000px;
-        }
-
-        .censored-block {
+        /* СКРЫТЫЙ ТЕКСТ ЦЕНЗУРЫ */
+        .censored {
             background: #ff3333;
             color: #ff3333;
-            cursor: help;
+            padding: 0 3px;
         }
-        .censored-block:hover { color: #000; }
+        .censored:hover {
+            color: #000000;
+            background: #ffcc00;
+        }
 
-        .glitch-text {
-            font-size: 0.8em;
-            color: #555;
-            text-align: center;
+        /* БЛОК ГОСТЕВОЙ КНИГИ (КОММЕНТАРИИ) */
+        .guestbook-title {
+            color: #ffcc00;
             margin-top: 50px;
+            text-align: center;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+
+        .comment-card {
+            border-top: 1px dashed #ff3333;
+            padding: 15px 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ff3333;
+            background: #331111;
+            flex-shrink: 0;
+        }
+
+        .comment-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #00ff66;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .comment-text {
+            font-size: 0.9em;
+            color: #dddddd;
+        }
+
+        .comment-date {
+            font-size: 0.75em;
+            color: #888888;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -105,41 +132,52 @@
         <img src="ahubAnswerHub.png" alt="ANSWER HUB" class="wordart-logo">
     </div>
 
-    <div class="main-grid">
+    <!-- ОСНОВНАЯ СПЛОШНАЯ ПОДЛОЖКА С ТЕКСТОМ -->
+    <div class="main-content-table">
+        
+        <h2>[ ИНФОРМАЦИОННЫЙ СБОЙ #019 ]</h2>
+        <p>Они думали, что этот проект был окончательно закрыт и стерт еще в 2004 году. Однако наш принимающий терминал зафиксировал подозрительную активность: удаленный сервер продолжал отправлять пакеты зашифрованных данных каждые 43 минуты. Нам удалось перехватить лишь текстовую часть последнего лога. Оригинальное имя файла, в котором скрывается ключ доступа ко второму уровню, было грубо замазано внутренней цензурой системы: <span class="censored">level2_key.html</span>.</p>
 
-        <div class="scary-node">
-            <div class="node-trigger" onclick="openNode(this)">[ ОШИБКА ИНДЕКСАЦИИ #019 ]</div>
-            <div class="node-content">
-                <p>Они думали, что проект закрыт в 2004-м. Но сервер продолжал отправлять пакеты данных каждые 43 минуты. Мы перехватили только текстовую часть лога. Имя файла, в котором лежит ответ, замазано цензурой: <span class="censored-block">level2_key.html</span>.</p>
+        <h2>[ ДАННЫЕ СЛЕДОВАНИЯ ]</h2>
+        <p>Последний снимок, полученный от полевого агента перед потерей связи в секторе 7. Нам известно, что файл содержит скрытые метаданные или визуальный шифр в пикселях. Если вы не можете разобрать содержимое поврежденного медиафайла, рекомендуется изучить базовый <a href="hint.txt">технический манифест</a>, оставленный в корневом каталоге.</p>
+        
+        <p>Текущий статус сети: СВЯЗЬ ПОТЕРЯНА. Сигнал полностью затухает на географических координатах <span class="censored">55.75, 37.61</span>. Все последующие входящие запросы автоматически перенаправляются сервером в пустую директорию.</p>
+
+        <!-- ГОСТЕВАЯ КНИГА -->
+        <div class="guestbook-title">-- Гостевая Книга Сервера --</div>
+
+        <!-- Комментарий 1 -->
+        <div class="comment-card">
+            <!-- Пиксельная ретро-аватарка генерируется сама через сервис identicon -->
+            <img src="https://dicebear.com" alt="avatar" class="avatar">
+            <div class="comment-body">
+                <div class="comment-author">Neo_99</div>
+                <div class="comment-text">Кто-нибудь еще видит этот сайт? У меня картинки ворд-арта сверху еле прогрузились. Что это за место вообще? Очередной заброшенный форум?</div>
+                <div class="comment-date">12.04.2005 23:14</div>
             </div>
         </div>
 
-        <div class="scary-node shift-right">
-            <div class="node-trigger" onclick="openNode(this)">[ ИСКАЖЕННЫЙ МЕДИАФАЙЛ ]</div>
-            <div class="node-content">
-                <p>Снимок из архива камеры наблюдения. Игроки должны извлечь метаданные или найти пасхалку в пикселях.</p>
-                <!-- ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА ВАШУ ВНУТРЕННЮЮ КАРТИНКУ -->
-                <img src="https://unsplash.com" style="border:1px solid #ffcc00; max-width:100%;" alt="Data Corrupted">
-                <p>Если вы не видите ключ, попробуйте прочитать <a href="hint.txt" style="color: #fff;">технический манифест</a>.</p>
+        <!-- Комментарий 2 (Сюжетная зацепка ARG) -->
+        <div class="comment-card">
+            <img src="https://dicebear.com" alt="avatar" class="avatar">
+            <div class="comment-body">
+                <div class="comment-author">The_Seeker</div>
+                <div class="comment-text">Ребята, не пишите сюда обычные сообщения, ОНИ могут заметить трафик. Я проверил манифест из текста, там реально пусто, но если навести мышку на красные полосы в тексте, под ними открываются буквы! Проверьте сами!</div>
+                <div class="comment-date">13.04.2005 02:41</div>
             </div>
         </div>
 
-        <div class="scary-node">
-            <div class="node-trigger" onclick="openNode(this)">[ СОСТОЯНИЕ СЕТИ ]</div>
-            <div class="node-content">
-                <p>Связь потеряна. Сигнал обрывается на координатах <span class="censored-block">55.75, 37.61</span>. Дальнейшие запросы перенаправляются в пустоту.</p>
+        <!-- Комментарий 3 -->
+        <div class="comment-card">
+            <img src="https://dicebear.com" alt="avatar" class="avatar">
+            <div class="comment-body">
+                <div class="comment-author">sys_operator</div>
+                <div class="comment-text">Ветка комментариев закрыта на чтение для неавторизованных пользователей. Пожалуйста, покиньте страницу.</div>
+                <div class="comment-date">13.04.2005 06:00</div>
             </div>
         </div>
 
     </div>
 
-    <div class="glitch-text">CRITICAL_ERROR // MEMORY_LEAK_DETECTION // TERMINATE_SESSION</div>
-
-    <script>
-        function openNode(element) {
-            let parent = element.parentElement;
-            parent.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
