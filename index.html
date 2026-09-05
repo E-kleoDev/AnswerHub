@@ -6,46 +6,225 @@
     <title>AnswerHub - The Final Node</title>
     <style>
         body {
-            background-color: #fce4ec; color: #ffffff; font-family: "Courier New", monospace; margin: 0; padding: 20px; scroll-behavior: smooth;
+            /* ВАШ ФОН СО ЗНАКАМИ ВОПРОСА */
+            background-image: url('https://vecteezy.com'); 
+            background-size: 300px;
+            background-repeat: repeat;
+            background-color: #fce4ec;
+            color: #ffffff;
+            font-family: "Courier New", monospace;
+            margin: 0;
+            padding: 20px;
+            scroll-behavior: smooth; /* Плавный скролл по гиперссылкам */
         }
-        .main-content-table { max-width: 750px; margin: 20px auto; background-color: #1a0a0a; border: 3px double #ff3333; padding: 25px; }
-        .welcome-block { text-align: center; border-bottom: 1px solid #ff3333; padding-bottom: 20px; margin-bottom: 20px; }
-        .welcome-title { color: #ffcc00; font-size: 1.3em; font-weight: bold; margin-bottom: 10px; }
-        .content-list { background: #251010; padding: 15px 20px 15px 40px; border: 1px dashed #ff3333; margin-bottom: 30px; }
-        h2 { color: #ffcc00; font-size: 1.1em; margin-top: 40px; }
-        a { color: #00ffff; text-decoration: underline; }
-        .early-censored { background: #ff3333; color: #ff3333; cursor: help; padding: 10px; margin-top: 10px; display: block; user-select: none; }
-        .early-censored:hover { background: #ffcc00; color: #000000; }
+
+        /* КОМПАКТНЫЙ КОНТЕЙНЕР ДЛЯ КАРТИНОК WORDART */
+        .wordart-header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            margin: 10px auto;
+            max-width: 180px;
+        }
+
+        .wordart-logo {
+            width: 100%;
+            height: auto;
+        }
+
+        /* СПЛОШНАЯ ТЕМНАЯ ПОДЛОЖКА В СТИЛЕ 90-х */
+        .main-content-table {
+            max-width: 750px;
+            margin: 20px auto;
+            background-color: #1a0a0a;
+            border: 3px double #ff3333;
+            padding: 25px;
+            box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .welcome-block {
+            text-align: center;
+            border-bottom: 1px solid #ff3333;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-title {
+            color: #ffcc00;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        /* БЛОК СОДЕРЖАНИЯ */
+        .content-list {
+            background: #251010;
+            padding: 15px 20px 15px 40px;
+            border: 1px dashed #ff3333;
+            margin-bottom: 30px;
+        }
+
+        .content-list li {
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #ffcc00;
+            font-size: 1.1em;
+            margin-top: 40px;
+            border-bottom: 1px dashed #331111;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        a {
+            color: #00ffff;
+            text-decoration: underline;
+        }
+        a:hover {
+            color: #ffcc00;
+        }
+
+        /* ПЛАШКА ЦЕНЗУРЫ С 20 СЛОВАМИ EARLY */
+        .early-censored {
+            background: #ff3333;
+            color: #ff3333;
+            cursor: help;
+            padding: 10px;
+            margin-top: 10px;
+            display: block;
+            user-select: none;
+            word-spacing: 5px;
+            line-height: 1.4;
+        }
+        .early-censored:hover {
+            background: #ffcc00;
+            color: #000000;
+        }
+
+        /* ГОСТЕВАЯ КНИГА */
+        .guestbook-title {
+            color: #ffcc00;
+            margin-top: 50px;
+            text-align: center;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            border-top: 1px solid #ff3333;
+            padding-top: 20px;
+        }
+
+        .comment-card {
+            border-top: 1px dashed #331111;
+            padding: 15px 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ff3333;
+            background: #331111;
+            flex-shrink: 0;
+        }
+
+        .comment-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #00ff66;
+            font-size: 0.9em;
+        }
+
+        .comment-text {
+            font-size: 0.9em;
+            color: #dddddd;
+            margin-top: 5px;
+        }
+
+        .comment-date {
+            font-size: 0.75em;
+            color: #666666;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- ТРИ КАРТИНОК WORDART ДРУГ ПОД ДРУГОМ -->
+    <div class="wordart-header-container">
+        <img src="ahubWELCOME.png" alt="WELCOME" class="wordart-logo">
+        <img src="ahubtothe.png" alt="TO THE" class="wordart-logo">
+        <img src="ahubAnswerHub.png" alt="ANSWER HUB" class="wordart-logo">
+    </div>
+
+    <!-- ОСНОВНАЯ ПОДЛОЖКА -->
     <div class="main-content-table">
+        
+        <!-- ПРИВЕТСТВИЕ -->
         <div class="welcome-block">
             <div class="welcome-title">Приветствуем на сайте "AnswerHub"</div>
-            <p>Только здесь вы получите ответы на свои вопросы.</p>
+            <p/>Только здесь вы получите ответы на вопросы ниже.</p>
         </div>
+
+        <!-- СОДЕРЖАНИЕ С ГИПЕРССЫЛКАМИ -->
         <ul class="content-list">
-            <li><a href="#q1">Вопрос 01: Кто такие "ДРУЗЬЯ"</a></li>
+            <li><a href="#q1">Вопрос 01: Кто такие "Друзья"</a></li>
             <li><a href="#q2">Вопрос 02: ### ##### "####"</a></li>
-            <li><a href="#q3">Вопрос 03: Кто такой "ПРИЗРАК"</a></li>
-            <li><a href="#q4">Вопрос 04: Кто такой "ГЕРОЙ"</a></li>
+            <li><a href="#q3">Вопрос 03: Кто такой "Призрак"</a></li>
+            <li><a href="#q4">Вопрос 04: Кто такой "Герой"</a></li>
         </ul>
+
+        <!-- ОТВЕТЫ НА ВОПРОСЫ -->
         <div id="q1">
-            <h2>[ЛОГ_01] Вопрос: Кто такие "ДРУЗЬЯ"</h2>
-            <div class="early-censored">early early early early early early early early early early early early early early early</div>
+            <h2>[ЛОГ_01] Вопрос: Кто такие "Друзья"</h2>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
         </div>
+
         <div id="q2">
             <h2>[ЛОГ_02] Вопрос: ### ##### "####"</h2>
-            <div class="early-censored">early early early early early early early early early early early early early early early</div>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
         </div>
+
         <div id="q3">
-            <h2>[ЛОГ_03] Вопрос: Кто такой "ПРИЗРАК"</h2>
-            <div class="early-censored">early early early early early early early early early early early early early early early</div>
+            <h2>[ЛОГ_03] Вопрос: Кто такой "Призрак"</h2>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
         </div>
+
         <div id="q4">
-            <h2>[ЛОГ_04] Вопрос: Кто такой "ГЕРОЙ"</h2>
-            <div class="early-censored">early early early early early early early early early early early early early early early</div>
+            <h2>[ЛОГ_04] Вопрос: Кто такой "Герой"</h2>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
         </div>
+
+        <!-- ГОСТЕВАЯ КНИГА СНИЗУ -->
+        <div class="guestbook-title">Архив обсуждений (Guestbook)</div>
+
+        <div class="comment-card">
+            <img src="https://dicebear.com" alt="avatar" class="avatar">
+            <div class="comment-body">
+                <div class="comment-author">X_File_Finder</div>
+                <div class="comment-text">В чём прикол</div>
+                <div class="comment-date">05.09.2026 12:00</div>
+            </div>
+        </div>
+
+        <div class="comment-card">
+            <img src="https://dicebear.com" alt="avatar" class="avatar">
+            <div class="comment-body">
+                <div class="comment-author">GhostWatcher</div>
+                <div class="comment-text">что такое early</div>
+                <div class="comment-date">05.09.2026 14:22</div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
