@@ -267,7 +267,6 @@
     </style>
 </head>
 <body>
-    <!-- всё остальное содержимое остаётся без изменений -->
     <div class="wordart-header-container">
         <img src="ahubWELCOME.png" alt="WELCOME" class="wordart-logo">
         <img src="ahubtothe.png" alt="TO THE" class="wordart-logo">
@@ -275,8 +274,118 @@
     </div>
 
     <div class="main-content-table">
-        <!-- ... остальной код ... -->
+        
+        <div class="auth-bar">
+            <button class="auth-btn" onclick="void(0)">Войти</button>
+            <button class="auth-btn" onclick="void(0)">Регистрация</button>
+        </div>
+
+        <div class="welcome-block">
+            <div class="welcome-title">Приветствуем на сайте "AnswerHub"</div>
+            <p>Только здесь вы получите ответы на вопросы ниже.</p>
+            
+            <marquee scrollamount="3" style="color: #ffcc00; font-size: 0.85em; margin-top: 10px;">
+                AnswerHub - сайт который даст вам ответы даже на те вопросы, которые вы не задавали.
+            </marquee>
+        </div>
+
+        <div class="music-wrapper">
+            <div id="gifLeft" class="music-gif-box">
+                <img src="music.gif" alt="music-left">
+            </div>
+            
+            <button class="music-btn" onclick="toggleJazz()">♫ Включить музыку</button>
+            
+            <div id="gifRight" class="music-gif-box">
+                <img src="music (1).gif" alt="music-right">
+            </div>
+        </div>
+
+        <audio id="jazzAudio" src="jazz.mp3" loop></audio>
+
+        <div class="notepad-box">
+            <div class="notepad-title">> Блокнот</div>
+            <textarea class="notepad-area" placeholder="Сюда можно временно выписать свои мысли"></textarea>
+            <br>
+            <button class="notepad-btn" onclick="document.querySelector('.notepad-area').value=''">Очистить</button>
+        </div>
+
+        <ul class="content-list">
+            <li><a href="#q1">Вопрос 01: Кто такие "Друзья"</a></li>
+            <li><a href="#q2">Вопрос 02: ### ##### "####"</a></li>
+            <li><a href="#q3">Вопрос 03: Кто такой "Призрак"</a></li>
+            <li><a href="#q4">Вопрос 04: Кто такой "Герой"</a></li>
+        </ul>
+
+        <div id="q1">
+            <h2>[ЛОГ_01] Вопрос: Кто такие "Друзья"</h2>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
+        </div>
+
+        <div id="q2">
+            <h2>[ЛОГ_02] Вопрос: ### ##### "####"</h2>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
+        </div>
+
+        <div id="q3">
+            <h2>[ЛОГ_03] Вопрос: Кто такой "Призрак"</h2>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
+        </div>
+
+        <div id="q4">
+            <h2>[ЛОГ_04] Вопрос: Кто такой "Герой"</h2>
+            <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
+        </div>
+
+        <div class="guestbook-title">Архив обсуждений (Guestbook)</div>
+
+        <div class="comment-card">
+            <img src="https://i.pinimg.com/originals/33/3b/4f/333b4f22ae39d1aaf8c23d77e759d8e1.jpg" alt="avatar" class="avatar">
+                        <div class="comment-body">
+                <div class="comment-author">X_File_Finder</div>
+                <div class="comment-text">В чём прикол</div>
+                <div class="comment-date">22.12.2017 18:47</div>
+            </div>
+        </div>
+
+        <div class="comment-card">
+            <img src="https://avatars.mds.yandex.net/i?id=999d003124871e7b1500e05fa00a96b79339998d-4111638-images-thumbs&n=13" alt="avatar" class="avatar">
+            <div class="comment-body">
+                <div class="comment-author">GhostWatcher</div>
+                <div class="comment-text">что такое early</div>
+                <div class="comment-date">17.12.2017 14:22</div>
+            </div>
+        </div>
+
+        <div class="counter-box">
+            Вы наш гость под номером: <span class="counter-digits">00000001</span>
+        </div>
+
     </div>
-    <!-- скрипты и т.д. -->
+
+    <script>
+        const myAudio = document.getElementById('jazzAudio');
+        const btn = document.querySelector('.music-btn');
+        const gifL = document.getElementById('gifLeft');
+        const gifR = document.getElementById('gifRight');
+
+        function toggleJazz() {
+            if (myAudio.paused) {
+                myAudio.play().catch(e => {
+                    alert("Браузер заблокировал воспроизведение. Пожалуйста, нажмите на кнопку еще раз!");
+                });
+                btn.innerText = "♫ Пауза";
+                btn.style.background = "#ffcc00";
+                gifL.style.display = "block";
+                gifR.style.display = "block";
+            } else {
+                myAudio.pause();
+                btn.innerText = "♫ Продолжить";
+                btn.style.background = "#888";
+                gifL.style.display = "none";
+                gifR.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
