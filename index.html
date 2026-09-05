@@ -41,6 +41,29 @@
             border: 3px double #ff3333;
             padding: 25px;
             box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+            position: relative; /* Чтобы позиционировать кнопки входа */
+        }
+
+        /* ПЛАШКА АВТОРИЗАЦИИ СПРАВА СВЕРХУ */
+        .auth-bar {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.8em;
+        }
+        .auth-btn {
+            background: #251010;
+            color: #00ffff;
+            border: 1px solid #ff3333;
+            padding: 3px 8px;
+            cursor: pointer;
+            font-family: "Courier New", monospace;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+        .auth-btn:hover {
+            background: #ff3333;
+            color: #000;
         }
 
         .welcome-block {
@@ -48,6 +71,7 @@
             border-bottom: 1px solid #ff3333;
             padding-bottom: 20px;
             margin-bottom: 20px;
+            margin-top: 20px; /* Отступ сверху из-за плашки входа */
         }
 
         .welcome-title {
@@ -56,6 +80,22 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+
+        /* РЕЛАКС ПЛЮШКА: УЮТНЫЙ ПЛЕЕР */
+        .music-box {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .music-btn {
+            background: #ffcc00;
+            color: #000;
+            border: 2px outset #fff;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: "Courier New", monospace;
+        }
+        .music-btn:active { border-style: inset; }
 
         /* БЛОК СОДЕРЖАНИЯ */
         .content-list {
@@ -155,6 +195,22 @@
             color: #666666;
             margin-top: 5px;
         }
+
+        /* СЧЁТЧИК ПОСЕТИТЕЛЕЙ */
+        .counter-box {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #888;
+        }
+        .counter-digits {
+            background: #000;
+            color: #00ff00;
+            padding: 2px 6px;
+            border: 1px solid #333;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
@@ -169,10 +225,26 @@
     <!-- ОСНОВНАЯ ПОДЛОЖКА -->
     <div class="main-content-table">
         
+        <!-- ПЛАШКА ВХОДА (КНОПКИ НИЧЕГО НЕ ДЕЛАЮТ) -->
+        <div class="auth-bar">
+            <button class="auth-btn" onclick="void(0)">Войти</button>
+            <button class="auth-btn" onclick="void(0)">Регистрация</button>
+        </div>
+
         <!-- ПРИВЕТСТВИЕ -->
         <div class="welcome-block">
             <div class="welcome-title">Приветствуем на сайте "AnswerHub"</div>
-            <p/>Только здесь вы получите ответы на вопросы ниже.</p>
+            <p>Только здесь вы получите ответы на вопросы ниже.</p>
+            
+            <!-- РЕТРО-БЕГУЩАЯ СТРОКА ДЛЯ РАССЛАБЛЕНИЯ -->
+            <marquee scrollamount="3" style="color: #ffcc00; font-size: 0.85em; margin-top: 10px;">
+                Поздравляем! Вы нашли AnswerHub.
+            </marquee>
+        </div>
+
+        <!-- КНОПКА МУЗЫКИ -->
+        <div class="music-box">
+            <button class="music-btn" onclick="playRelaxMusic()">♫ Включить музыку</button>
         </div>
 
         <!-- СОДЕРЖАНИЕ С ГИПЕРССЫЛКАМИ -->
@@ -225,6 +297,21 @@
             </div>
         </div>
 
+        <!-- СЧЁТЧИК ПОСЕТИТЕЛЕЙ ИЗ 2000-х -->
+        <div class="counter-box">
+            Вы наш гость под номером: <span class="counter-digits">00000001</span>
+        </div>
+
     </div>
-</body>
-</html>
+
+    <!-- СКРИПТ КРАСИВОЙ МЯГКОЙ МУЗЫКИ (CHIPTUNE) -->
+    <script>
+        let audioCtx = null;
+        let isPlaying = false;
+        
+        function playRelaxMusic() {
+            if (isPlaying) return;
+            isPlaying = true;
+            
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            
