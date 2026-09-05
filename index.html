@@ -6,8 +6,7 @@
     <title>AnswerHub - The Final Node</title>
     <style>
         body {
-            /* ВАШ ФОН СО ЗНАКАМИ ВОПРОСА */
-            background-image: url('https://static.vecteezy.com/system/resources/previews/013/403/839/non_2x/seamless-pattern-from-of-question-marks-vector.jpg'); 
+            background-image: url('https://vecteezy.com'); 
             background-size: 300px;
             background-repeat: repeat;
             background-color: #fce4ec;
@@ -15,10 +14,9 @@
             font-family: "Courier New", monospace;
             margin: 0;
             padding: 20px;
-            scroll-behavior: smooth; /* Плавный скролл по гиперссылкам */
+            scroll-behavior: smooth;
         }
 
-        /* КОМПАКТНЫЙ КОНТЕЙНЕР ДЛЯ КАРТИНОК WORDART */
         .wordart-header-container {
             display: flex;
             flex-direction: column;
@@ -33,7 +31,6 @@
             height: auto;
         }
 
-        /* СПЛОШНАЯ ТЕМНАЯ ПОДЛОЖКА В СТИЛЕ 90-х */
         .main-content-table {
             max-width: 750px;
             margin: 20px auto;
@@ -41,16 +38,16 @@
             border: 3px double #ff3333;
             padding: 25px;
             box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
-            position: relative; /* Чтобы позиционировать кнопки входа */
+            position: relative; 
         }
 
-        /* ПЛАШКА АВТОРИЗАЦИИ СПРАВА СВЕРХУ */
         .auth-bar {
             position: absolute;
             top: 15px;
             right: 15px;
             font-size: 0.8em;
         }
+
         .auth-btn {
             background: #251010;
             color: #00ffff;
@@ -58,9 +55,9 @@
             padding: 3px 8px;
             cursor: pointer;
             font-family: "Courier New", monospace;
-            text-decoration: none;
             margin-left: 5px;
         }
+
         .auth-btn:hover {
             background: #ff3333;
             color: #000;
@@ -71,7 +68,7 @@
             border-bottom: 1px solid #ff3333;
             padding-bottom: 20px;
             margin-bottom: 20px;
-            margin-top: 20px; /* Отступ сверху из-за плашки входа */
+            margin-top: 20px; 
         }
 
         .welcome-title {
@@ -81,23 +78,77 @@
             margin-bottom: 10px;
         }
 
-        /* РЕЛАКС ПЛЮШКА: УЮТНЫЙ ПЛЕЕР */
-        .music-box {
-            text-align: center;
-            margin: 15px 0;
+        .music-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            min-height: 60px;
         }
+
+        .music-gif-box {
+            width: 50px;
+            height: 50px;
+            display: none;
+        }
+
+        .music-gif-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
         .music-btn {
             background: #ffcc00;
             color: #000;
             border: 2px outset #fff;
-            padding: 5px 15px;
+            padding: 8px 20px;
             cursor: pointer;
             font-weight: bold;
             font-family: "Courier New", monospace;
         }
-        .music-btn:active { border-style: inset; }
 
-        /* БЛОК СОДЕРЖАНИЯ */
+        .music-btn:active { 
+            border-style: inset; 
+        }
+
+        .notepad-box {
+            background: #110505;
+            border: 1px solid #ffcc00;
+            padding: 15px;
+            margin: 25px 0;
+        }
+
+        .notepad-title {
+            color: #ffcc00;
+            font-size: 0.85em;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .notepad-area {
+            width: 95%;
+            height: 60px;
+            background: #1a0a0a;
+            border: 1px solid #ff3333;
+            color: #ffcc00;
+            font-family: "Courier New", monospace;
+            padding: 8px;
+            resize: none;
+        }
+
+        .notepad-btn {
+            background: #ff3333;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 3px 10px;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-top: 5px;
+            font-family: "Courier New", monospace;
+        }
+
         .content-list {
             background: #251010;
             padding: 15px 20px 15px 40px;
@@ -126,11 +177,11 @@
             color: #00ffff;
             text-decoration: underline;
         }
+
         a:hover {
             color: #ffcc00;
         }
 
-        /* ПЛАШКА ЦЕНЗУРЫ С 20 СЛОВАМИ EARLY */
         .early-censored {
             background: #ff3333;
             color: #ff3333;
@@ -142,12 +193,12 @@
             word-spacing: 5px;
             line-height: 1.4;
         }
+
         .early-censored:hover {
             background: #ffcc00;
             color: #000000;
         }
 
-        /* ГОСТЕВАЯ КНИГА */
         .guestbook-title {
             color: #ffcc00;
             margin-top: 50px;
@@ -196,13 +247,13 @@
             margin-top: 5px;
         }
 
-        /* СЧЁТЧИК ПОСЕТИТЕЛЕЙ */
         .counter-box {
             text-align: center;
             margin-top: 40px;
             font-size: 0.8em;
             color: #888;
         }
+
         .counter-digits {
             background: #000;
             color: #00ff00;
@@ -215,39 +266,49 @@
 </head>
 <body>
 
-    <!-- ТРИ КАРТИНОК WORDART ДРУГ ПОД ДРУГОМ -->
     <div class="wordart-header-container">
         <img src="ahubWELCOME.png" alt="WELCOME" class="wordart-logo">
         <img src="ahubtothe.png" alt="TO THE" class="wordart-logo">
         <img src="ahubAnswerHub.png" alt="ANSWER HUB" class="wordart-logo">
     </div>
 
-    <!-- ОСНОВНАЯ ПОДЛОЖКА -->
     <div class="main-content-table">
         
-        <!-- ПЛАШКА ВХОДА (КНОПКИ НИЧЕГО НЕ ДЕЛАЮТ) -->
         <div class="auth-bar">
             <button class="auth-btn" onclick="void(0)">Войти</button>
             <button class="auth-btn" onclick="void(0)">Регистрация</button>
         </div>
 
-        <!-- ПРИВЕТСТВИЕ -->
         <div class="welcome-block">
             <div class="welcome-title">Приветствуем на сайте "AnswerHub"</div>
             <p>Только здесь вы получите ответы на вопросы ниже.</p>
             
-            <!-- РЕТРО-БЕГУЩАЯ СТРОКА ДЛЯ РАССЛАБЛЕНИЯ -->
             <marquee scrollamount="3" style="color: #ffcc00; font-size: 0.85em; margin-top: 10px;">
-                Поздравляем! Вы нашли AnswerHub.
+                Текущий статус узла: Синхронизация завершена. Время отдыхать. Угощайтесь чаем и оставайтесь с нами...
             </marquee>
         </div>
 
-        <!-- КНОПКА МУЗЫКИ -->
-        <div class="music-box">
-            <button class="music-btn" onclick="playRelaxMusic()">♫ Включить музыку</button>
+        <div class="music-wrapper">
+            <div id="gifLeft" class="music-gif-box">
+                <img src="music.gif" alt="music-left">
+            </div>
+            
+            <button class="music-btn" onclick="toggleJazz()">♫ Включить музыку</button>
+            
+            <div id="gifRight" class="music-gif-box">
+                <img src="music (1).gif" alt="music-right">
+            </div>
         </div>
 
-        <!-- СОДЕРЖАНИЕ С ГИПЕРССЫЛКАМИ -->
+        <audio id="jazzAudio" src="jazz.mp3" loop></audio>
+
+        <div class="notepad-box">
+            <div class="notepad-title">> Терминал блокнота (Оставлено для ваших заметок):</div>
+            <textarea class="notepad-area" placeholder="Сюда можно временно выписать шифры или мысли по ходу игр..."></textarea>
+            <br>
+            <button class="notepad-btn" onclick="document.querySelector('.notepad-area').value=''">Сохранить лог</button>
+        </div>
+
         <ul class="content-list">
             <li><a href="#q1">Вопрос 01: Кто такие "Друзья"</a></li>
             <li><a href="#q2">Вопрос 02: ### ##### "####"</a></li>
@@ -255,7 +316,6 @@
             <li><a href="#q4">Вопрос 04: Кто такой "Герой"</a></li>
         </ul>
 
-        <!-- ОТВЕТЫ НА ВОПРОСЫ -->
         <div id="q1">
             <h2>[ЛОГ_01] Вопрос: Кто такие "Друзья"</h2>
             <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
@@ -276,12 +336,11 @@
             <div class="early-censored">early early early early early early early early early early early early early early early early early early early early</div>
         </div>
 
-        <!-- ГОСТЕВАЯ КНИГА СНИЗУ -->
         <div class="guestbook-title">Архив обсуждений (Guestbook)</div>
 
         <div class="comment-card">
             <img src="https://dicebear.com" alt="avatar" class="avatar">
-            <div class="comment-body">
+                        <div class="comment-body">
                 <div class="comment-author">X_File_Finder</div>
                 <div class="comment-text">В чём прикол</div>
                 <div class="comment-date">05.09.2026 12:00</div>
@@ -297,21 +356,35 @@
             </div>
         </div>
 
-        <!-- СЧЁТЧИК ПОСЕТИТЕЛЕЙ ИЗ 2000-х -->
         <div class="counter-box">
             Вы наш гость под номером: <span class="counter-digits">00000001</span>
         </div>
 
     </div>
 
-    <!-- СКРИПТ КРАСИВОЙ МЯГКОЙ МУЗЫКИ (CHIPTUNE) -->
     <script>
-        let audioCtx = null;
-        let isPlaying = false;
-        
-        function playRelaxMusic() {
-            if (isPlaying) return;
-            isPlaying = true;
-            
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            
+        const myAudio = document.getElementById('jazzAudio');
+        const btn = document.querySelector('.music-btn');
+        const gifL = document.getElementById('gifLeft');
+        const gifR = document.getElementById('gifRight');
+
+        function toggleJazz() {
+            if (myAudio.paused) {
+                myAudio.play().catch(e => {
+                    alert("Браузер заблокировал воспроизведение. Пожалуйста, нажмите на кнопку еще раз!");
+                });
+                btn.innerText = "♫ Пауза";
+                btn.style.background = "#ffcc00";
+                gifL.style.display = "block";
+                gifR.style.display = "block";
+            } else {
+                myAudio.pause();
+                btn.innerText = "♫ Продолжить";
+                btn.style.background = "#888";
+                gifL.style.display = "none";
+                gifR.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
